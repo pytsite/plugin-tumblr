@@ -1,0 +1,5 @@
+{
+  "requires": {
+    "packages": ["requests_oauthlib"]
+  }
+}
