@@ -9,7 +9,7 @@ __license__ = 'MIT'
 
 
 def _init():
-    from pytsite import lang, assetman, content_export, permissions, settings, events, router
+    from pytsite import lang, assetman, permissions, settings, events
     from . import _content_export, _settings_form, _eh
 
     # Resources
@@ -20,7 +20,11 @@ def _init():
     lang.register_global('tumblr_admin_settings_url', lambda: settings.form_url('tumblr'))
 
     # Content export driver
-    content_export.register_driver(_content_export.Driver())
+    try:
+        from plugins import content_export
+        content_export.register_driver(_content_export.Driver())
+    except ImportError as e:
+        raise RuntimeError("Required plugin is not found: {}".format(e))
 
     # Permissions
     permissions.define_permission('tumblr.settings.manage', 'tumblr@manage_tumblr_settings', 'app')

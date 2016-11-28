@@ -1,8 +1,8 @@
 """PytSite Tumblr Content Export Driver.
 """
 from frozendict import frozendict as _frozendict
-from pytsite import content as _content, content_export as _content_export, widget as _widget, logger as _logger, \
-     router as _router
+from pytsite import content as _content, widget as _widget, logger as _logger, router as _router
+from plugins import content_export as _content_export
 from ._widget import Auth as _TumblrAuthWidget
 from ._session import Session as _Session
 

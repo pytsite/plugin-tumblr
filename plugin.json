@@ -1,5 +1,22 @@
 {
+  "name": "Tumblr",
+  "description": {
+    "en": "Tumblr support",
+    "ru": "Поддержка Tumblr",
+    "uk": "Підримка Tumblr"
+  },
+  "url": "https://github.com/pytsite/plugin-tumblr",
+  "author": {
+    "name": "Alexander Shepetko",
+    "email": "a@shepetko.com",
+    "url": "https://shepetko.com"
+  },
   "requires": {
-    "packages": ["requests_oauthlib"]
+    "packages": [
+      "requests_oauthlib"
+    ],
+    "plugins": [
+      "content_export"
+    ]
   }
 }
