@@ -17,7 +17,7 @@ def _init():
     assetman.register_package(__name__, alias='tumblr')
 
     # Lang globals
-    lang.register_global('tumblr_admin_settings_url', lambda: settings.form_url('tumblr'))
+    lang.register_global('tumblr_admin_settings_url', lambda language, args: settings.form_url('tumblr'))
 
     # Content export driver
     try:

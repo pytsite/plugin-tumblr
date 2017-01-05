@@ -1,8 +1,8 @@
 {
   "description": {
-    "en": "Tumblr support",
-    "ru": "Поддержка Tumblr",
-    "uk": "Підримка Tumblr"
+    "en": "Tumblr",
+    "ru": "Tumblr",
+    "uk": "Tumblr"
   },
   "url": "https://github.com/pytsite/plugin-tumblr",
   "author": {
