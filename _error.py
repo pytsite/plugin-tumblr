@@ -7,3 +7,15 @@ __license__ = 'MIT'
 
 class RequestError(Exception):
     pass
+
+
+class AppKeyNotSet(Exception):
+    pass
+
+
+class AppSecretNotSet(Exception):
+    pass
+
+
+class SessionError(Exception):
+    pass

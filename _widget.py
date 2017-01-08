@@ -1,7 +1,7 @@
 """PytSite Tumblr Widgets.
 """
 from pytsite import widget as _widget, html as _html, lang as _lang, router as _router
-from ._session import Session as TumblrSession, AuthSession as TumblrAuthSession
+from ._session import Session as TumblrSession, Auth as TumblrAuthSession
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'

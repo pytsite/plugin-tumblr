@@ -1,8 +1,8 @@
 {
   "description": {
-    "en": "Tumblr",
-    "ru": "Tumblr",
-    "uk": "Tumblr"
+    "en": "Tumblr API",
+    "ru": "Tumblr API",
+    "uk": "Tumblr API"
   },
   "url": "https://github.com/pytsite/plugin-tumblr",
   "author": {
@@ -14,8 +14,6 @@
     "packages": [
       "requests_oauthlib"
     ],
-    "plugins": [
-      "content_export"
-    ]
+    "plugins": []
   }
 }

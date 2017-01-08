@@ -1,8 +1,8 @@
-"""PytSite Tumblr Session.
+"""PytSite Tumblr Sessions.
 """
 from requests_oauthlib import OAuth1Session as _OAuthSession
-from pytsite import reg as _reg, settings as _settings, router as _router, validation as _validation, cache as _cache
-from . import _error
+from pytsite import router as _router, validation as _validation, cache as _cache
+from . import _error, _api
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -12,16 +12,13 @@ _API_BASE_URL = 'https://api.tumblr.com/v2/'
 _request_tokens = _cache.create_pool('pytsite.tumblr.tokens')
 
 
-class AuthSession:
-    def __init__(self, request_token: str = None, callback_uri: str = None):
-        self._app_key = _settings.get('tumblr.app_key')
-        if not self._app_key:
-            raise RuntimeError("Configuration parameter 'tumblr.app_key' is not defined.")
-
-        self._app_secret = _settings.get('tumblr.app_secret')
-        if not self._app_secret:
-            raise RuntimeError("Configuration parameter 'tumblr.app_secret' is not defined.")
-
+class Auth:
+    def __init__(self, request_token: str = None, callback_uri: str = None, app_key: str = None,
+                 app_secret: str = None):
+        """Init.
+        """
+        self._app_key = app_key or _api.get_app_key()
+        self._app_secret = app_secret or _api.get_app_secret()
         self._request_token = None
         self._request_secret = None
         self._oauth_session = None
@@ -67,8 +64,10 @@ class AuthSession:
 
 
 class Session:
-    def __init__(self, oauth_token: str, oauth_token_secret: str):
-        self._client = _OAuthSession(_reg.get('tumblr.app_key'), _reg.get('tumblr.app_secret'),
+    def __init__(self, oauth_token: str, oauth_token_secret: str, app_key: str = None, app_secret: str = None):
+        """Init.
+        """
+        self._client = _OAuthSession(app_key or _api.get_app_key(), app_secret or _api.get_app_secret(),
                                      oauth_token, oauth_token_secret)
 
     def request(self, endpoint: str, method='GET', **kwargs):

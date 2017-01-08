@@ -1,6 +1,10 @@
-# PytSite Tumblr Plugin
+# PytSite Tumblr API Plugin
 
 ## Changelog
+
+### 0.3 (2017-01-08)
+Content export moved to separate plugin.
+
 
 ### 0.2.3 (2017-01-05)
 - Translations fixed.
