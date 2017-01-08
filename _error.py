@@ -1,4 +1,4 @@
-"""PytSite Tumblr Errors.
+"""PytSite Tumblr Plugin Errors.
 """
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'

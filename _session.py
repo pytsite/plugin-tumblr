@@ -1,4 +1,4 @@
-"""PytSite Tumblr Sessions.
+"""PytSite Tumblr Plugin Sessions.
 """
 from requests_oauthlib import OAuth1Session as _OAuthSession
 from pytsite import router as _router, validation as _validation, cache as _cache
