@@ -66,17 +66,17 @@ class Auth(_widget.Abstract):
 
         wrapper = _widget.Container(self.uid)
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[oauth_token]',
             value=self.oauth_token,
         ))
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[oauth_token_secret]',
             value=self.oauth_token_secret,
         ))
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[screen_name]',
             value=self.screen_name,
         ))
@@ -86,8 +86,8 @@ class Auth(_widget.Abstract):
                         target='_blank')
             a.append(_html.I(cls='fa fa-fw fa-tumblr'))
 
-            wrapper.add_widget(_widget.static.HTML(self.uid + '[user]', em=a))
-            wrapper.add_widget(_widget.select.Select(
+            wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
+            wrapper.append_child(_widget.select.Select(
                 uid=self.uid + '[user_blog]',
                 h_size='col-sm-6',
                 items=self.user_blogs,
@@ -99,6 +99,6 @@ class Auth(_widget.Abstract):
             auth_s = TumblrAuthSession(callback_uri=self._callback_uri).fetch_request_token()
             a = _html.A(_lang.t('tumblr@authorization'), href=auth_s.get_authorization_url())
             a.append(_html.I(cls='fa fa-fw fa-tumblr'))
-            wrapper.add_widget(_widget.static.HTML(self.uid + '[user]', em=a))
+            wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
 
         return self._group_wrap(wrapper)
