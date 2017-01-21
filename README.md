@@ -3,6 +3,9 @@
 
 ## Changelog
 
+### 0.3.2 (2017-01-21)
+Support latest PytSite `widget`'s changes.
+
 
 ### 0.3.1 (2017-01-12)
 Support for latest PytSite `form`'s changes.

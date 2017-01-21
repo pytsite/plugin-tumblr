@@ -46,7 +46,7 @@ class Auth(_widget.Abstract):
     def user_blog(self) -> str:
         return self._user_blog
 
-    def get_html_em(self, **kwargs) -> _html.Element:
+    def _get_element(self, **kwargs) -> _html.Element:
         """Render widget.
         :param **kwargs:
         """
@@ -101,4 +101,4 @@ class Auth(_widget.Abstract):
             a.append(_html.I(cls='fa fa-fw fa-tumblr'))
             wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
 
-        return self._group_wrap(wrapper)
+        return wrapper
