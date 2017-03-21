@@ -84,7 +84,7 @@ class Auth(_widget.Abstract):
         if self.user_blogs:
             a = _html.A('&nbsp;{}'.format(self.screen_name), href='http://{}.tumblr.com'.format(self.screen_name),
                         target='_blank')
-            a.append(_html.I(cls='fa fa-fw fa-tumblr'))
+            a.append(_html.I(css='fa fa-fw fa-tumblr'))
 
             wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
             wrapper.append_child(_widget.select.Select(
@@ -98,7 +98,7 @@ class Auth(_widget.Abstract):
         else:
             auth_s = TumblrAuthSession(callback_uri=self._callback_uri).fetch_request_token()
             a = _html.A(_lang.t('tumblr@authorization'), href=auth_s.get_authorization_url())
-            a.append(_html.I(cls='fa fa-fw fa-tumblr'))
+            a.append(_html.I(css='fa fa-fw fa-tumblr'))
             wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
 
         return wrapper
