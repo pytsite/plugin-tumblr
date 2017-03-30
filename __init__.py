@@ -10,7 +10,7 @@ __license__ = 'MIT'
 
 
 def _init():
-    from pytsite import lang, assetman, permissions, settings, events
+    from pytsite import lang, assetman, permissions, settings, router
     from . import _settings_form, _eh
 
     # Resources
@@ -27,7 +27,7 @@ def _init():
     settings.define('tumblr', _settings_form.Form, 'tumblr@tumblr', 'fa fa-tumblr', 'tumblr.settings.manage')
 
     # Event handlers
-    events.listen('pytsite.router.dispatch', _eh.router_dispatch)
+    router.on_dispatch(_eh.router_dispatch)
 
 
 _init()
