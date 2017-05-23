@@ -10,12 +10,11 @@ __license__ = 'MIT'
 
 
 def _init():
-    from pytsite import lang, assetman, permissions, settings, router
+    from pytsite import lang, permissions, settings, router
     from . import _settings_form, _eh
 
     # Resources
     lang.register_package(__name__, alias='tumblr')
-    assetman.register_package(__name__, alias='tumblr')
 
     # Lang globals
     lang.register_global('tumblr_admin_settings_url', lambda language, args: settings.form_url('tumblr'))
