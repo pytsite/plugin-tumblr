@@ -1,4 +1,6 @@
 {
+  "name": "plugins.tumblr",
+  "version": "0.3.6",
   "description": {
     "en": "Tumblr API",
     "ru": "Tumblr API",
