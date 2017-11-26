@@ -1,6 +1,7 @@
 """PytSite Tumblr Plugin Widgets.
 """
-from pytsite import widget as _widget, html as _html, lang as _lang, router as _router
+from pytsite import html as _html, lang as _lang, router as _router
+from plugins import widget as _widget
 from ._session import Session as TumblrSession, Auth as TumblrAuthSession
 
 __author__ = 'Alexander Shepetko'

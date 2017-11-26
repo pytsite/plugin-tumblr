@@ -1,6 +1,6 @@
 {
-  "name": "plugins.tumblr",
-  "version": "0.3.6",
+  "name": "tumblr",
+  "version": "1.0",
   "description": {
     "en": "Tumblr API",
     "ru": "Tumblr API",
@@ -16,6 +16,12 @@
     "packages": [
       "requests_oauthlib"
     ],
-    "plugins": []
+    "plugins": [
+      "auth",
+      "font_awesome",
+      "permissions",
+      "settings",
+      "widget"
+    ]
   }
 }

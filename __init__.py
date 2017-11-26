@@ -1,4 +1,4 @@
-"""PytSite Tumblr Plugin.
+"""PytSite Tumblr Plugin
 """
 # Public API
 from ._api import get_app_key, get_app_secret
@@ -10,11 +10,12 @@ __license__ = 'MIT'
 
 
 def _init():
-    from pytsite import lang, permissions, settings, router
+    from pytsite import lang, router
+    from plugins import permissions, settings
     from . import _settings_form, _eh
 
     # Resources
-    lang.register_package(__name__, alias='tumblr')
+    lang.register_package(__name__)
 
     # Lang globals
     lang.register_global('tumblr_admin_settings_url', lambda language, args: settings.form_url('tumblr'))

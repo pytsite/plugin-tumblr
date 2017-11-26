@@ -9,7 +9,7 @@ __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
 _API_BASE_URL = 'https://api.tumblr.com/v2/'
-_request_tokens = _cache.create_pool('pytsite.tumblr.tokens')
+_request_tokens = _cache.create_pool('tumblr.tokens')
 
 
 class Auth:
