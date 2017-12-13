@@ -1,15 +1,18 @@
 """PytSite Tumblr Plugin
 """
-# Public API
-from ._api import get_app_key, get_app_secret
-from . import _session as session, _widget as widget
-
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
+from pytsite import plugman as _plugman
 
-def _init():
+if _plugman.is_installed(__name__):
+    # Public API
+    from ._api import get_app_key, get_app_secret
+    from . import _session as session, _widget as widget
+
+
+def plugin_load():
     from pytsite import lang, router
     from plugins import permissions, settings
     from . import _settings_form, _eh
@@ -28,6 +31,3 @@ def _init():
 
     # Event handlers
     router.on_dispatch(_eh.router_dispatch)
-
-
-_init()
