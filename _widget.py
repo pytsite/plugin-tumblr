@@ -1,12 +1,12 @@
 """PytSite Tumblr Plugin Widgets.
 """
-from pytsite import html as _html, lang as _lang, router as _router
-from plugins import widget as _widget
-from ._session import Session as TumblrSession, Auth as TumblrAuthSession
-
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
+
+from pytsite import html as _html, lang as _lang, router as _router
+from plugins import widget as _widget
+from ._session import Session as TumblrSession, Auth as TumblrAuthSession
 
 
 class Auth(_widget.Abstract):

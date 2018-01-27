@@ -1,12 +1,12 @@
 """PytSite Tumblr Plugin Sessions.
 """
-from requests_oauthlib import OAuth1Session as _OAuthSession
-from pytsite import router as _router, validation as _validation, cache as _cache
-from . import _error, _api
-
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
+
+from requests_oauthlib import OAuth1Session as _OAuthSession
+from pytsite import router as _router, validation as _validation, cache as _cache
+from . import _error, _api
 
 _API_BASE_URL = 'https://api.tumblr.com/v2/'
 _request_tokens = _cache.create_pool('tumblr.tokens')
