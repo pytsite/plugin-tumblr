@@ -40,16 +40,15 @@ class Auth(_widget.Abstract):
         return self._screen_name
 
     @property
-    def user_blogs(self) -> str:
+    def user_blogs(self) -> list:
         return self._user_blogs
 
     @property
     def user_blog(self) -> str:
         return self._user_blog
 
-    def _get_element(self, **kwargs) -> _html.Element:
-        """Render widget.
-        :param **kwargs:
+    def _get_element(self, **kwargs) -> _widget.Container:
+        """Hook
         """
         # If 'verifier' is here, we need to exchange it to an access token
         inp_oauth_token = _router.request().inp.get('oauth_token')
