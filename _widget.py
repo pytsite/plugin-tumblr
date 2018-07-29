@@ -47,7 +47,7 @@ class Auth(_widget.Abstract):
     def user_blog(self) -> str:
         return self._user_blog
 
-    def _get_element(self, **kwargs) -> _widget.Container:
+    def _get_element(self, **kwargs) -> _html.Element:
         """Hook
         """
         # If 'verifier' is here, we need to exchange it to an access token
@@ -64,41 +64,41 @@ class Auth(_widget.Abstract):
             user_info = TumblrSession(self._oauth_token, self._oauth_token_secret).user_info()
             self._user_blogs = [(i['name'], i['title']) for i in user_info['blogs']]
 
-        wrapper = _widget.Container(self.uid)
+        wrapper = _html.TagLessElement()
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[oauth_token]',
             value=self.oauth_token,
-        ))
+        ).renderable())
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[oauth_token_secret]',
             value=self.oauth_token_secret,
-        ))
+        ).renderable())
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[screen_name]',
             value=self.screen_name,
-        ))
+        ).renderable())
 
         if self.user_blogs:
             a = _html.A('&nbsp;{}'.format(self.screen_name), href='http://{}.tumblr.com'.format(self.screen_name),
                         target='_blank')
             a.append(_html.I(css='fa fa-fw fa-tumblr'))
 
-            wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
-            wrapper.append_child(_widget.select.Select(
+            wrapper.append(_widget.static.HTML(self.uid + '[user]', em=a).renderable())
+            wrapper.append(_widget.select.Select(
                 uid=self.uid + '[user_blog]',
                 h_size='col-sm-6',
                 items=self.user_blogs,
                 value=self.user_blog,
                 required=True,
                 label=_lang.t('tumblr@blog')
-            ))
+            ).renderable())
         else:
             auth_s = TumblrAuthSession(callback_uri=self._callback_uri).fetch_request_token()
             a = _html.A(_lang.t('tumblr@authorization'), href=auth_s.get_authorization_url())
             a.append(_html.I(css='fa fa-fw fa-tumblr'))
-            wrapper.append_child(_widget.static.HTML(self.uid + '[user]', em=a))
+            wrapper.append(_widget.static.HTML(self.uid + '[user]', em=a).renderable())
 
         return wrapper
